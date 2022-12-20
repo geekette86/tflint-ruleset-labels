@@ -15,7 +15,7 @@ goreleaser release --debug  --rm-dist
 You need to set :  
 * GPG_FINGERPRINT
 * GITHUB_TOKEN  
-to get you public key grom you GPG FINGERPRINT
+to get you public key from you GPG FINGERPRINT
 ```
 gpg --output PUBLIC.gpg --export --armor YOUR_ID
 ```
