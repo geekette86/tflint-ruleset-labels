@@ -1,6 +1,16 @@
 # TFLint Ruleset Labels ( based on https://github.com/terraform-linters/tflint-ruleset-template)
 
+
+
 This is a template repository for building a custom ruleset to have lables as mandatory attribute. 
+![alt text](tflint.png)
+
+## Why 
+Labels are important for:   
+ * easily track how much specific resource costs in your billing data  
+ * have filtering and reporting on resource  
+ * formulate configuration action via configuration management tools post resource provisioning.   
+ 
 ## Requirements
 
 - TFLint v0.40+
