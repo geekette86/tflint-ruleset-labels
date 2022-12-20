@@ -1,13 +1,24 @@
-# TFLint Ruleset Template
-[![Build Status](https://github.com/terraform-linters/tflint-ruleset-template/workflows/build/badge.svg?branch=main)](https://github.com/terraform-linters/tflint-ruleset-template/actions)
+# TFLint Ruleset Labels ( based on https://github.com/terraform-linters/tflint-ruleset-template)
 
-This is a template repository for building a custom ruleset. You can create a plugin repository from "Use this template". See also [Writing Plugins](https://github.com/terraform-linters/tflint/blob/master/docs/developer-guide/plugins.md).
-
+This is a template repository for building a custom ruleset to have lables as mandatory attribute. 
 ## Requirements
 
 - TFLint v0.40+
 - Go v1.19
+## In case of new release
 
+To create auto release with `goreleaser` and push it to github , just type:
+```sh
+git tag v0.0.X -m dzrlblrule
+goreleaser release --debug  --rm-dist 
+```
+You need to set :  
+* GPG_FINGERPRINT
+* GITHUB_TOKEN  
+to get you public key grom you GPG FINGERPRINT
+```
+gpg --output PUBLIC.gpg --export --armor YOUR_ID
+```
 ## Installation
 
 TODO: This template repository does not contain release binaries, so this installation will not work. Please rewrite for your repository. See the "Building the plugin" section to get this template ruleset working.
@@ -15,30 +26,23 @@ TODO: This template repository does not contain release binaries, so this instal
 You can install the plugin with `tflint --init`. Declare a config in `.tflint.hcl` as follows:
 
 ```hcl
-plugin "template" {
-  enabled = true
+ enabled = true
 
-  version = "0.1.0"
-  source  = "github.com/terraform-linters/tflint-ruleset-template"
+    version = "0.0.3"
+    source = "github.com/geekette86/tflint-ruleset-labels"
+    signing_key = <<-KEY
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
 
-  signing_key = <<-KEY
-  -----BEGIN PGP PUBLIC KEY BLOCK-----
-  mQINBGCqS2YBEADJ7gHktSV5NgUe08hD/uWWPwY07d5WZ1+F9I9SoiK/mtcNGz4P
-  JLrYAIUTMBvrxk3I+kuwhp7MCk7CD/tRVkPRIklONgtKsp8jCke7FB3PuFlP/ptL
-  SlbaXx53FCZSOzCJo9puZajVWydoGfnZi5apddd11Zw1FuJma3YElHZ1A1D2YvrF
-  ...
-  KEY
+    mQINBGOheScBEADD71zhHOLxpIq6haF4AVrDB9Bpd5e+O4h3MX4dzaeaUf+UHYAx
+    jq5PfOnXfiWq6QaQV+KQrB3Tw3HkvTqiZaUS3RCf71hyaY+UQFc9ByxUNIm6gWse
+    PEN9EDkC/5bGAW1aU56Vfv5PObnvHbRQ9n5/wJksO6heRRU9aoWnfYiVtnXbbaip
+    AEPNemeK5NbCDQqi4QZO+n98lLZP/j++lTzVllIX0WG1oRfxjZ+PoD575kUYvBzo
+    8aCWAZS/McUyXrktM7/2CoVg/A7buEGfaN4HRHZMve58WmJOtIgjtNnlWf9yg9WY
+    ..Contact me for the rest
+    -----END PGP PUBLIC KEY BLOCK-----
+    KEY
 }
 ```
-
-## Rules
-
-|Name|Description|Severity|Enabled|Link|
-| --- | --- | --- | --- | --- |
-|aws_instance_example_type|Example rule for accessing and evaluating top-level attributes|ERROR|✔||
-|aws_s3_bucket_example_lifecycle_rule|Example rule for accessing top-level/nested blocks and attributes under the blocks|ERROR|✔||
-|google_compute_ssl_policy|Example rule with a custom rule config|WARNING|✔||
-|terraform_backend_type|Example rule for accessing other than resources|ERROR|✔||
 
 ## Building the plugin
 
