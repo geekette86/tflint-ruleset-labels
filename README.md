@@ -3,10 +3,12 @@
 
 
 This is a template repository for building a custom ruleset to have lables as mandatory attribute. 
+
 ![alt text](tflint.png)
 
 ## Why 
-Labels are important for:   
+Labels are important to:   
+
  * easily track how much specific resource costs in your billing data  
  * have filtering and reporting on resource  
  * formulate configuration action via configuration management tools post resource provisioning.   
@@ -15,6 +17,7 @@ Labels are important for:
 
 - TFLint v0.40+
 - Go v1.19
+- 
 ## In case of new release
 
 To create auto release with `goreleaser` and push it to github , just type:
@@ -22,6 +25,7 @@ To create auto release with `goreleaser` and push it to github , just type:
 git tag v0.0.X -m dzrlblrule
 goreleaser release --debug  --rm-dist 
 ```
+
 You need to set :  
 * GPG_FINGERPRINT
 * GITHUB_TOKEN  
