@@ -3,8 +3,9 @@ module github.com/terraform-linters/tflint-ruleset-template
 go 1.19
 
 require (
-	github.com/hashicorp/hcl/v2 v2.15.0
+	github.com/hashicorp/hcl/v2 v2.16.2
 	github.com/terraform-linters/tflint-plugin-sdk v0.14.0
+	github.com/terraform-linters/tflint-ruleset-terraform v0.2.1
 )
 
 require (
@@ -22,7 +23,6 @@ require (
 	github.com/mitchellh/go-testing-interface v1.0.0 // indirect
 	github.com/mitchellh/go-wordwrap v0.0.0-20150314170334-ad45545899c7 // indirect
 	github.com/oklog/run v1.0.0 // indirect
-	github.com/terraform-linters/tflint-ruleset-terraform v0.2.1 // indirect
 	github.com/vmihailenco/msgpack/v4 v4.3.12 // indirect
 	github.com/vmihailenco/tagparser v0.1.1 // indirect
 	github.com/zclconf/go-cty v1.12.1 // indirect
